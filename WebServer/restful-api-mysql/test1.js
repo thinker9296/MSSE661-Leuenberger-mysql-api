@@ -9,7 +9,7 @@ var con = mysql.createConnection({
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-  con.query("CREATE DATABASE tododb", function (err, result) {
+  con.query("CREATE DATABASE names", function (err, result) {
     if (err) throw err;
     console.log("Database created");
   });

@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-const queries = require('./queries/tasks.queries');
+const queries = require('./queries/names.queries');
 
 // Get the Host from Environment or use default
 const host = process.env.DB_HOST || 'localhost';
@@ -11,7 +11,7 @@ const user = process.env.DB_USER || 'root';
 const password = process.env.DB_PASS || 'willow1';
 
 // Get the Database from Environment or use default
-const database = process.env.DB_DATABASE || 'tododb';
+const database = process.env.DB_DATABASE || 'names';
 
 // Create the connection with required details
 const con = mysql.createConnection({
@@ -26,7 +26,7 @@ con.connect(function(err) {
   if (err) throw err;
   console.log('Connected!');
 
-  con.query(queries.CREATE_TASKS_TABLE, function(err, result) {
+  con.query(queries.CREATE_NAMES_TABLE, function(err, result) {
     if (err) throw err;
     console.log('Table created or exists already!');
   });
