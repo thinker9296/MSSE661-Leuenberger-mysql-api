@@ -1,8 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 
 const namesRoutes = require('./routes/names.routes');
+const authRoutes = require('./routes/auth.routes');
+const userRoutes = require('./routes/user.routes');
+
 const middleware = require('./middleware/errors.middleware');
 
 const app = express();
@@ -16,11 +20,16 @@ app.use(logger(logLevel));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// Allow websites to talk to our API service.
+app.use(cors());
+
 // ************************************
 // ROUTE-HANDLING MIDDLEWARE FUNCTIONS
 // ************************************
 
 // Handle routes names.
+app.use('/api/auth', authRoutes); // http://localhost:3000/api/auth
+app.use('/api/user', userRoutes); // http://localhost:3000/api/users
 app.use('/names', namesRoutes); 
 
 // Handle 404 requests
