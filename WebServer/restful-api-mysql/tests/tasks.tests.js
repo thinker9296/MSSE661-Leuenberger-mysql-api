@@ -17,19 +17,19 @@ describe('Names API Service', function () {
       });
   });
 
-/*   it('should GET a single task', function (done) {
+  it('should GET a single name', function (done) {
     const expected = [
       {
         id: 1,
-        name: "I'm the first task!",
-        created_date: '2020-03-24T05:09:49.000Z',
-        status: 'completed',
+        firstname: "Sally",
+        lastname: "Seashells",
+        created_date: '2020-11-09T04:55:56.000Z',
       },
     ];
 
     chai
       .request('http://localhost:3000')
-      .get('/api/tasks/1')
+      .get('/names/1')
       .end(function (err, resp) {
         expect(resp.status).to.be.eql(200);
         expect(resp.body).to.be.a('array');
@@ -39,7 +39,7 @@ describe('Names API Service', function () {
       });
   });
 
-  it.skip('should POST a single task', function (done) {
+ /*  it.skip('should POST a single task', function (done) {
     const newTask = {
       name: 'New test task!',
     };
