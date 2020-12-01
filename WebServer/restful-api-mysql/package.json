@@ -1,11 +1,9 @@
 {
-  "name": "week5",
+  "name": "week6",
   "version": "1.0.0",
-  "description": "Week 5 Class App",
+  "description": "Week 6 Class App",
   "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
+  
   "scripts": {
     "start": "nodemon ./src",
     "test": "NODE_ENV='test' mocha ./tests/*"
