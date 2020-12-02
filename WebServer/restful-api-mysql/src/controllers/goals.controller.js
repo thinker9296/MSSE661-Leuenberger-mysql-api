@@ -47,7 +47,7 @@ exports.getGoal = async (req, res) => {
   // query all goal
   const goal = await query(
     con,
-    SINGLE_TASK(req.user.id, req.params.goalId)
+    SINGLE_GOAL(req.user.id, req.params.goalId)
   ).catch(serverError(res));
 
   if (!goal.length) {
@@ -76,7 +76,7 @@ exports.createGoal = async (req, res) => {
 
     // query add goal
     const goalName = mysql.escape(req.body.goal_name);
-    const result = await query(con, INSERT_TASK(user.id, goalName)).catch(
+    const result = await query(con, INSERT_GOAL(user.id, goalName)).catch(
       serverError(res)
     );
 
@@ -126,7 +126,7 @@ exports.updateGoal = async (req, res) => {
   // query update goal
   const result = await query(
     con,
-    UPDATE_TASK(req.user.id, req.params.goalId, values)
+    UPDATE_GOAL(req.user.id, req.params.goalId, values)
   ).catch(serverError(res));
 
   if (result.affectedRows !== 1) {
@@ -147,7 +147,7 @@ exports.deleteGoal = async (req, res) => {
   // query delete goal
   const result = await query(
     con,
-    DELETE_TASK(req.user.id, req.params.goalId)
+    DELETE_GOAL(req.user.id, req.params.goalId)
   ).catch(serverError(res));
 
   if (result.affectedRows !== 1) {
