@@ -19,7 +19,7 @@ const { serverError } = require('../utils/handlers');
  */
 
 // http://localhost:3000/goals
-exports.getAllTasks = async (req, res) => {
+exports.getAllGoals = async (req, res) => {
   // establish connection
   const con = await connection().catch((err) => {
     throw err;
@@ -38,7 +38,7 @@ exports.getAllTasks = async (req, res) => {
 };
 
 // http://localhost:3000/goals/1
-exports.getTask = async (req, res) => {
+exports.getGoal = async (req, res) => {
   // establish connection
   const con = await connection().catch((err) => {
     throw err;
@@ -63,7 +63,7 @@ exports.getTask = async (req, res) => {
  *  name: 'A goal name'
  * }
  */
-exports.createTask = async (req, res) => {
+exports.createGoal = async (req, res) => {
   // verify valid token
   const user = req.user; // {id: 1, iat: wlenfwekl, expiredIn: 9174323 }
 
@@ -116,7 +116,7 @@ const _buildValuesString = (req) => {
  *  state: 'completed'
  * }
  */
-exports.updateTask = async (req, res) => {
+exports.updateGoal = async (req, res) => {
   // establish connection
   const con = await connection().catch((err) => {
     throw err;
@@ -138,7 +138,7 @@ exports.updateTask = async (req, res) => {
 };
 
 // http://localhost:3000/goals/1
-exports.deleteTask = async (req, res) => {
+exports.deleteGoal = async (req, res) => {
   // establish connection
   const con = await connection().catch((err) => {
     throw err;
